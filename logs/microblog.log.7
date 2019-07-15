@@ -1,0 +1,120 @@
+2019-06-28 09:21:39,722 ERROR: Exception on / [GET] [in c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py:1780]
+Traceback (most recent call last):
+  File "c:\pyprogects\microblog\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1244, in _execute_context
+    cursor, statement, parameters, context
+  File "c:\pyprogects\microblog\venv\lib\site-packages\sqlalchemy\engine\default.py", line 550, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: user
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\_compat.py", line 36, in reraise
+    raise value
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py", line 1830, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py", line 2106, in preprocess_request
+    rv = func()
+  File "c:\pyprogects\microblog\venv\app\routes.py", line 77, in before_request
+    if current_user.is_authenticated:
+  File "c:\pyprogects\microblog\venv\lib\site-packages\werkzeug\local.py", line 348, in __getattr__
+    return getattr(self._get_current_object(), name)
+  File "c:\pyprogects\microblog\venv\lib\site-packages\werkzeug\local.py", line 307, in _get_current_object
+    return self.__local()
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask_login\utils.py", line 26, in <lambda>
+    current_user = LocalProxy(lambda: _get_user())
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask_login\utils.py", line 335, in _get_user
+    current_app.login_manager._load_user()
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask_login\login_manager.py", line 359, in _load_user
+    return self.reload_user()
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask_login\login_manager.py", line 321, in reload_user
+    user = self.user_callback(user_id)
+  File "c:\pyprogects\microblog\venv\app\models.py", line 63, in load_user
+    return User.query.get(int(id))
+  File "c:\pyprogects\microblog\venv\lib\site-packages\sqlalchemy\orm\query.py", line 959, in get
+    return self._get_impl(ident, loading.load_on_pk_identity)
+  File "c:\pyprogects\microblog\venv\lib\site-packages\sqlalchemy\orm\query.py", line 1069, in _get_impl
+    return db_load_fn(self, primary_key_identity)
+  File "c:\pyprogects\microblog\venv\lib\site-packages\sqlalchemy\orm\loading.py", line 282, in load_on_pk_identity
+    return q.one()
+  File "c:\pyprogects\microblog\venv\lib\site-packages\sqlalchemy\orm\query.py", line 3282, in one
+    ret = self.one_or_none()
+  File "c:\pyprogects\microblog\venv\lib\site-packages\sqlalchemy\orm\query.py", line 3251, in one_or_none
+    ret = list(self)
+  File "c:\pyprogects\microblog\venv\lib\site-packages\sqlalchemy\orm\query.py", line 3324, in __iter__
+    return self._execute_and_instances(context)
+  File "c:\pyprogects\microblog\venv\lib\site-packages\sqlalchemy\orm\query.py", line 3349, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
+  File "c:\pyprogects\microblog\venv\lib\site-packages\sqlalchemy\engine\base.py", line 988, in execute
+    return meth(self, multiparams, params)
+  File "c:\pyprogects\microblog\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 287, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "c:\pyprogects\microblog\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1107, in _execute_clauseelement
+    distilled_params,
+  File "c:\pyprogects\microblog\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1248, in _execute_context
+    e, statement, parameters, cursor, context
+  File "c:\pyprogects\microblog\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1466, in _handle_dbapi_exception
+    util.raise_from_cause(sqlalchemy_exception, exc_info)
+  File "c:\pyprogects\microblog\venv\lib\site-packages\sqlalchemy\util\compat.py", line 399, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "c:\pyprogects\microblog\venv\lib\site-packages\sqlalchemy\util\compat.py", line 153, in reraise
+    raise value.with_traceback(tb)
+  File "c:\pyprogects\microblog\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1244, in _execute_context
+    cursor, statement, parameters, context
+  File "c:\pyprogects\microblog\venv\lib\site-packages\sqlalchemy\engine\default.py", line 550, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: user
+[SQL: SELECT user.id AS user_id, user.username AS user_username, user.email AS user_email, user.password_hash AS user_password_hash, user.about_me AS user_about_me, user.last_seen AS user_last_seen 
+FROM user 
+WHERE user.id = ?]
+[parameters: (3,)]
+(Background on this error at: http://sqlalche.me/e/e3q8)
+2019-06-28 09:24:57,396 INFO: Microblog startup [in c:\pyprogects\microblog\venv\app\__init__.py:44]
+2019-06-28 09:25:11,850 INFO: Microblog startup [in c:\pyprogects\microblog\venv\app\__init__.py:44]
+2019-06-28 09:25:44,734 INFO: Microblog startup [in c:\pyprogects\microblog\venv\app\__init__.py:44]
+2019-06-28 09:28:14,225 ERROR: Exception on /follow/susan [GET] [in c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py:1780]
+Traceback (most recent call last):
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py", line 1835, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py", line 1850, in finalize_request
+    response = self.make_response(rv)
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py", line 1976, in make_response
+    'The view function did not return a valid response. The'
+TypeError: The view function did not return a valid response. The function either returned None or ended without a return statement.
+2019-06-28 09:31:53,800 INFO: Microblog startup [in c:\pyprogects\microblog\venv\app\__init__.py:44]
+2019-06-28 09:35:28,406 INFO: Microblog startup [in c:\pyprogects\microblog\venv\app\__init__.py:44]
+2019-07-01 16:08:12,481 INFO: Microblog startup [in c:\pyprogects\microblog\venv\app\__init__.py:44]
+2019-07-01 16:31:17,207 INFO: Microblog startup [in c:\pyprogects\microblog\venv\app\__init__.py:44]
+2019-07-01 17:14:57,359 INFO: Microblog startup [in c:\pyprogects\microblog\venv\app\__init__.py:44]
+2019-07-01 17:40:11,959 INFO: Microblog startup [in c:\pyprogects\microblog\venv\app\__init__.py:44]
+2019-07-01 17:42:36,317 ERROR: Exception on /explore [GET] [in c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py:1780]
+Traceback (most recent call last):
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\_compat.py", line 36, in reraise
+    raise value
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "c:\pyprogects\microblog\venv\app\routes.py", line 143, in explore
+    if posts.has_nexxt else None
+AttributeError: 'Pagination' object has no attribute 'has_nexxt'
+2019-07-01 17:45:05,052 INFO: Microblog startup [in c:\pyprogects\microblog\venv\app\__init__.py:44]
+2019-07-02 15:31:15,357 INFO: Microblog startup [in c:\pyprogects\microblog\venv\app\__init__.py:46]
+2019-07-03 15:54:52,136 INFO: Microblog startup [in c:\pyprogects\microblog\venv\app\__init__.py:46]
+2019-07-03 17:27:07,268 INFO: Microblog startup [in c:\pyprogects\microblog\venv\app\__init__.py:46]

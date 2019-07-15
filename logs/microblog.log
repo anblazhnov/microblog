@@ -1,0 +1,40 @@
+2019-07-09 15:56:53,975 INFO: Microblog startup [in c:\pyprogects\microblog\venv\app\__init__.py:75]
+2019-07-09 15:56:58,108 ERROR: Exception on /search [GET] [in c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py:1780]
+Traceback (most recent call last):
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\_compat.py", line 36, in reraise
+    raise value
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "c:\pyprogects\microblog\venv\app\main\routes.py", line 154, in search
+    if total['value'] > page * current_app.config['POSTS_PER_PAGE'] else None
+TypeError: 'int' object is not subscriptable
+2019-07-09 15:57:14,457 ERROR: Exception on /search [GET] [in c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py:1780]
+Traceback (most recent call last):
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\_compat.py", line 36, in reraise
+    raise value
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "c:\pyprogects\microblog\venv\app\main\routes.py", line 154, in search
+    if total['value'] > page * current_app.config['POSTS_PER_PAGE'] else None
+TypeError: 'int' object is not subscriptable
+2019-07-09 16:00:13,273 INFO: Microblog startup [in c:\pyprogects\microblog\venv\app\__init__.py:75]

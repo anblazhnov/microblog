@@ -1,0 +1,90 @@
+2019-07-09 14:07:37,923 ERROR: Exception on /index [GET] [in c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py:1780]
+Traceback (most recent call last):
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\_compat.py", line 36, in reraise
+    raise value
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "c:\pyprogects\microblog\venv\app\main\routes.py", line 41, in index
+    if posts.has_next else None
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\helpers.py", line 356, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py", line 2080, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\_compat.py", line 36, in reraise
+    raise value
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\helpers.py", line 345, in url_for
+    force_external=external)
+  File "c:\pyprogects\microblog\venv\lib\site-packages\werkzeug\routing.py", line 2007, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'index' with values ['page']. Did you mean 'main.index' instead?
+2019-07-09 14:42:43,543 INFO: Microblog startup [in c:\pyprogects\microblog\venv\app\__init__.py:75]
+2019-07-09 14:42:48,522 ERROR: Exception on / [GET] [in c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py:1780]
+Traceback (most recent call last):
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\_compat.py", line 36, in reraise
+    raise value
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "c:\pyprogects\microblog\venv\app\main\routes.py", line 41, in index
+    if posts.has_next else None
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\helpers.py", line 356, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py", line 2080, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\_compat.py", line 36, in reraise
+    raise value
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\helpers.py", line 345, in url_for
+    force_external=external)
+  File "c:\pyprogects\microblog\venv\lib\site-packages\werkzeug\routing.py", line 2007, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'index' with values ['page']. Did you mean 'main.index' instead?
+2019-07-09 14:45:45,476 INFO: Microblog startup [in c:\pyprogects\microblog\venv\app\__init__.py:75]
+2019-07-09 14:45:51,105 ERROR: Exception on / [GET] [in c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py:1780]
+Traceback (most recent call last):
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\_compat.py", line 36, in reraise
+    raise value
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "c:\pyprogects\microblog\venv\app\main\routes.py", line 41, in index
+    if posts.has_next else None
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\helpers.py", line 356, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py", line 2080, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\_compat.py", line 36, in reraise
+    raise value
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\helpers.py", line 345, in url_for
+    force_external=external)
+  File "c:\pyprogects\microblog\venv\lib\site-packages\werkzeug\routing.py", line 2007, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'index' with values ['page']. Did you mean 'main.index' instead?
+2019-07-09 14:48:21,596 INFO: Microblog startup [in c:\pyprogects\microblog\venv\app\__init__.py:75]
