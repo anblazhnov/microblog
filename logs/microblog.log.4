@@ -1,4 +1,46 @@
-2019-07-09 14:07:37,923 ERROR: Exception on /index [GET] [in c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py:1780]
+2019-07-16 15:00:27,204 ERROR: Exception on /index [POST] [in c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py:1780]
+Traceback (most recent call last):
+  File "c:\pyprogects\microblog\venv\lib\site-packages\urllib3\connection.py", line 160, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw)
+  File "c:\pyprogects\microblog\venv\lib\site-packages\urllib3\util\connection.py", line 80, in create_connection
+    raise err
+  File "c:\pyprogects\microblog\venv\lib\site-packages\urllib3\util\connection.py", line 70, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\pyprogects\microblog\venv\lib\site-packages\elasticsearch\connection\http_urllib3.py", line 232, in perform_request
+    method, url, body, retries=Retry(False), headers=request_headers, **kw
+  File "c:\pyprogects\microblog\venv\lib\site-packages\urllib3\connectionpool.py", line 641, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "c:\pyprogects\microblog\venv\lib\site-packages\urllib3\util\retry.py", line 344, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "c:\pyprogects\microblog\venv\lib\site-packages\urllib3\packages\six.py", line 686, in reraise
+    raise value
+  File "c:\pyprogects\microblog\venv\lib\site-packages\urllib3\connectionpool.py", line 603, in urlopen
+    chunked=chunked)
+  File "c:\pyprogects\microblog\venv\lib\site-packages\urllib3\connectionpool.py", line 355, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\Users\Andrey_b\AppData\Local\Programs\Python\Python37-32\lib\http\client.py", line 1229, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "C:\Users\Andrey_b\AppData\Local\Programs\Python\Python37-32\lib\http\client.py", line 1275, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "C:\Users\Andrey_b\AppData\Local\Programs\Python\Python37-32\lib\http\client.py", line 1224, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\Users\Andrey_b\AppData\Local\Programs\Python\Python37-32\lib\http\client.py", line 1016, in _send_output
+    self.send(msg)
+  File "C:\Users\Andrey_b\AppData\Local\Programs\Python\Python37-32\lib\http\client.py", line 956, in send
+    self.connect()
+  File "c:\pyprogects\microblog\venv\lib\site-packages\urllib3\connection.py", line 183, in connect
+    conn = self._new_conn()
+  File "c:\pyprogects\microblog\venv\lib\site-packages\urllib3\connection.py", line 169, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x04CA8670>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение
+
+During handling of the above exception, another exception occurred:
+
 Traceback (most recent call last):
   File "c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py", line 2311, in wsgi_app
     response = self.full_dispatch_request()
@@ -14,77 +56,27 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\pyprogects\microblog\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "c:\pyprogects\microblog\venv\app\main\routes.py", line 41, in index
-    if posts.has_next else None
-  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\helpers.py", line 356, in url_for
-    return appctx.app.handle_url_build_error(error, endpoint, values)
-  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py", line 2080, in handle_url_build_error
-    reraise(exc_type, exc_value, tb)
-  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\_compat.py", line 36, in reraise
-    raise value
-  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\helpers.py", line 345, in url_for
-    force_external=external)
-  File "c:\pyprogects\microblog\venv\lib\site-packages\werkzeug\routing.py", line 2007, in build
-    raise BuildError(endpoint, values, method, self)
-werkzeug.routing.BuildError: Could not build url for endpoint 'index' with values ['page']. Did you mean 'main.index' instead?
-2019-07-09 14:42:43,543 INFO: Microblog startup [in c:\pyprogects\microblog\venv\app\__init__.py:75]
-2019-07-09 14:42:48,522 ERROR: Exception on / [GET] [in c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py:1780]
-Traceback (most recent call last):
-  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py", line 2311, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py", line 1834, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py", line 1737, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\_compat.py", line 36, in reraise
-    raise value
-  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py", line 1832, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py", line 1818, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "c:\pyprogects\microblog\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "c:\pyprogects\microblog\venv\app\main\routes.py", line 41, in index
-    if posts.has_next else None
-  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\helpers.py", line 356, in url_for
-    return appctx.app.handle_url_build_error(error, endpoint, values)
-  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py", line 2080, in handle_url_build_error
-    reraise(exc_type, exc_value, tb)
-  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\_compat.py", line 36, in reraise
-    raise value
-  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\helpers.py", line 345, in url_for
-    force_external=external)
-  File "c:\pyprogects\microblog\venv\lib\site-packages\werkzeug\routing.py", line 2007, in build
-    raise BuildError(endpoint, values, method, self)
-werkzeug.routing.BuildError: Could not build url for endpoint 'index' with values ['page']. Did you mean 'main.index' instead?
-2019-07-09 14:45:45,476 INFO: Microblog startup [in c:\pyprogects\microblog\venv\app\__init__.py:75]
-2019-07-09 14:45:51,105 ERROR: Exception on / [GET] [in c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py:1780]
-Traceback (most recent call last):
-  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py", line 2311, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py", line 1834, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py", line 1737, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\_compat.py", line 36, in reraise
-    raise value
-  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py", line 1832, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py", line 1818, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "c:\pyprogects\microblog\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "c:\pyprogects\microblog\venv\app\main\routes.py", line 41, in index
-    if posts.has_next else None
-  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\helpers.py", line 356, in url_for
-    return appctx.app.handle_url_build_error(error, endpoint, values)
-  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py", line 2080, in handle_url_build_error
-    reraise(exc_type, exc_value, tb)
-  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\_compat.py", line 36, in reraise
-    raise value
-  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\helpers.py", line 345, in url_for
-    force_external=external)
-  File "c:\pyprogects\microblog\venv\lib\site-packages\werkzeug\routing.py", line 2007, in build
-    raise BuildError(endpoint, values, method, self)
-werkzeug.routing.BuildError: Could not build url for endpoint 'index' with values ['page']. Did you mean 'main.index' instead?
-2019-07-09 14:48:21,596 INFO: Microblog startup [in c:\pyprogects\microblog\venv\app\__init__.py:75]
+  File "c:\pyprogects\microblog\venv\app\main\routes.py", line 33, in index
+    db.session.commit()
+  File "c:\pyprogects\microblog\venv\lib\site-packages\sqlalchemy\orm\scoping.py", line 162, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "c:\pyprogects\microblog\venv\lib\site-packages\sqlalchemy\orm\session.py", line 1027, in commit
+    self.transaction.commit()
+  File "c:\pyprogects\microblog\venv\lib\site-packages\sqlalchemy\orm\session.py", line 501, in commit
+    self.session.dispatch.after_commit(self.session)
+  File "c:\pyprogects\microblog\venv\lib\site-packages\sqlalchemy\event\attr.py", line 259, in __call__
+    fn(*args, **kw)
+  File "c:\pyprogects\microblog\venv\app\models.py", line 36, in after_commit
+    add_to_index(obj.__tablename__, obj)
+  File "c:\pyprogects\microblog\venv\app\search.py", line 10, in add_to_index
+    current_app.elasticsearch.index(index=index, doc_type=index, id=model.id, body=payload)
+  File "c:\pyprogects\microblog\venv\lib\site-packages\elasticsearch\client\utils.py", line 84, in _wrapped
+    return func(*args, params=params, **kwargs)
+  File "c:\pyprogects\microblog\venv\lib\site-packages\elasticsearch\client\__init__.py", line 364, in index
+    "POST", _make_path(index, doc_type, id), params=params, body=body
+  File "c:\pyprogects\microblog\venv\lib\site-packages\elasticsearch\transport.py", line 353, in perform_request
+    timeout=timeout,
+  File "c:\pyprogects\microblog\venv\lib\site-packages\elasticsearch\connection\http_urllib3.py", line 244, in perform_request
+    raise ConnectionError("N/A", str(e), e)
+elasticsearch.exceptions.ConnectionError: ConnectionError(<urllib3.connection.HTTPConnection object at 0x04CA8670>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение) caused by: NewConnectionError(<urllib3.connection.HTTPConnection object at 0x04CA8670>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение)
+2019-07-16 15:36:17,554 INFO: Microblog startup [in c:\pyprogects\microblog\venv\app\__init__.py:80]
