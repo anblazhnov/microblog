@@ -1,4 +1,43 @@
-2019-07-17 09:54:31,351 ERROR: Exception on /search [GET] [in c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py:1780]
+2019-07-17 16:24:45,180 ERROR: Exception on /send_message/Andrey [GET] [in c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py:1780]
+Traceback (most recent call last):
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\_compat.py", line 36, in reraise
+    raise value
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "c:\pyprogects\microblog\venv\app\main\routes.py", line 180, in send_message
+    recipient=recipient)
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\templating.py", line 135, in render_template
+    context, ctx.app)
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\templating.py", line 117, in _render
+    rv = template.render(context)
+  File "c:\pyprogects\microblog\venv\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "c:\pyprogects\microblog\venv\lib\site-packages\jinja2\environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "c:\pyprogects\microblog\venv\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\pyprogects\microblog\venv\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "c:\pyprogects\microblog\venv\app\templates\send_message.html", line 2, in top-level template code
+    {% import 'bootstrap/wlf.html' as wlf %}
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\templating.py", line 58, in get_source
+    return self._get_source_fast(environment, template)
+  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\templating.py", line 86, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: bootstrap/wlf.html
+2019-07-17 16:27:01,202 INFO: Microblog startup [in c:\pyprogects\microblog\venv\app\__init__.py:80]
+2019-07-17 17:25:38,912 INFO: Microblog startup [in c:\pyprogects\microblog\venv\app\__init__.py:80]
+2019-07-17 17:26:37,616 ERROR: Exception on /index [POST] [in c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py:1780]
 Traceback (most recent call last):
   File "c:\pyprogects\microblog\venv\lib\site-packages\urllib3\connection.py", line 160, in _new_conn
     (self._dns_host, self.port), self.timeout, **extra_kw)
@@ -37,7 +76,7 @@ Traceback (most recent call last):
     conn = self._new_conn()
   File "c:\pyprogects\microblog\venv\lib\site-packages\urllib3\connection.py", line 169, in _new_conn
     self, "Failed to establish a new connection: %s" % e)
-urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x04DF7810>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x05B1F8D0>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение
 
 During handling of the above exception, another exception occurred:
 
@@ -56,24 +95,31 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\pyprogects\microblog\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "c:\pyprogects\microblog\venv\app\main\routes.py", line 152, in search
-    posts, total = Post.search(g.search_form.q.data, page, current_app.config['POSTS_PER_PAGE'])
-  File "c:\pyprogects\microblog\venv\app\models.py", line 16, in search
-    ids, total = query_index(cls.__tablename__, expression, page, per_page)
-  File "c:\pyprogects\microblog\venv\app\search.py", line 26, in query_index
-    'from': (page - 1) * per_page, 'size': per_page})
+  File "c:\pyprogects\microblog\venv\app\main\routes.py", line 33, in index
+    db.session.commit()
+  File "c:\pyprogects\microblog\venv\lib\site-packages\sqlalchemy\orm\scoping.py", line 162, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "c:\pyprogects\microblog\venv\lib\site-packages\sqlalchemy\orm\session.py", line 1027, in commit
+    self.transaction.commit()
+  File "c:\pyprogects\microblog\venv\lib\site-packages\sqlalchemy\orm\session.py", line 501, in commit
+    self.session.dispatch.after_commit(self.session)
+  File "c:\pyprogects\microblog\venv\lib\site-packages\sqlalchemy\event\attr.py", line 259, in __call__
+    fn(*args, **kw)
+  File "c:\pyprogects\microblog\venv\app\models.py", line 36, in after_commit
+    add_to_index(obj.__tablename__, obj)
+  File "c:\pyprogects\microblog\venv\app\search.py", line 11, in add_to_index
+    current_app.elasticsearch.index(index=index, doc_type=index, id=model.id, body=payload)
   File "c:\pyprogects\microblog\venv\lib\site-packages\elasticsearch\client\utils.py", line 84, in _wrapped
     return func(*args, params=params, **kwargs)
-  File "c:\pyprogects\microblog\venv\lib\site-packages\elasticsearch\client\__init__.py", line 819, in search
-    "GET", _make_path(index, "_search"), params=params, body=body
+  File "c:\pyprogects\microblog\venv\lib\site-packages\elasticsearch\client\__init__.py", line 364, in index
+    "POST", _make_path(index, doc_type, id), params=params, body=body
   File "c:\pyprogects\microblog\venv\lib\site-packages\elasticsearch\transport.py", line 353, in perform_request
     timeout=timeout,
   File "c:\pyprogects\microblog\venv\lib\site-packages\elasticsearch\connection\http_urllib3.py", line 244, in perform_request
     raise ConnectionError("N/A", str(e), e)
-elasticsearch.exceptions.ConnectionError: ConnectionError(<urllib3.connection.HTTPConnection object at 0x04DF7810>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение) caused by: NewConnectionError(<urllib3.connection.HTTPConnection object at 0x04DF7810>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение)
-2019-07-17 13:10:18,028 INFO: Microblog startup [in c:\pyprogects\microblog\venv\app\__init__.py:80]
-2019-07-17 13:18:35,048 INFO: Microblog startup [in c:\pyprogects\microblog\venv\app\__init__.py:80]
-2019-07-17 13:21:23,497 INFO: Microblog startup [in c:\pyprogects\microblog\venv\app\__init__.py:80]
-2019-07-17 13:38:54,756 INFO: Microblog startup [in c:\pyprogects\microblog\venv\app\__init__.py:80]
-2019-07-17 13:44:09,766 INFO: Microblog startup [in c:\pyprogects\microblog\venv\app\__init__.py:80]
-2019-07-17 13:45:02,615 INFO: Microblog startup [in c:\pyprogects\microblog\venv\app\__init__.py:80]
+elasticsearch.exceptions.ConnectionError: ConnectionError(<urllib3.connection.HTTPConnection object at 0x05B1F8D0>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение) caused by: NewConnectionError(<urllib3.connection.HTTPConnection object at 0x05B1F8D0>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение)
+2019-07-17 17:41:18,276 INFO: Microblog startup [in c:\pyprogects\microblog\venv\app\__init__.py:80]
+2019-07-18 09:59:56,958 INFO: Microblog startup [in c:\pyprogects\microblog\venv\app\__init__.py:80]
+2019-07-18 10:00:52,607 INFO: Microblog startup [in c:\pyprogects\microblog\venv\app\__init__.py:80]
+2019-07-18 11:23:42,181 INFO: Microblog startup [in c:\pyprogects\microblog\venv\app\__init__.py:80]
+2019-07-18 12:52:53,477 INFO: Microblog startup [in c:\pyprogects\microblog\venv\app\__init__.py:80]

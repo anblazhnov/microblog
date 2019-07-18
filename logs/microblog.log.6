@@ -1,4 +1,5 @@
-2019-07-09 15:07:13,743 ERROR: Exception on /edit_profile [POST] [in c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py:1780]
+2019-07-09 15:56:53,975 INFO: Microblog startup [in c:\pyprogects\microblog\venv\app\__init__.py:75]
+2019-07-09 15:56:58,108 ERROR: Exception on /search [GET] [in c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py:1780]
 Traceback (most recent call last):
   File "c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py", line 2311, in wsgi_app
     response = self.full_dispatch_request()
@@ -14,22 +15,10 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\pyprogects\microblog\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "c:\pyprogects\microblog\venv\app\main\routes.py", line 89, in edit_profile
-    return redirect(url_for('edit_profile'))
-  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\helpers.py", line 356, in url_for
-    return appctx.app.handle_url_build_error(error, endpoint, values)
-  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py", line 2080, in handle_url_build_error
-    reraise(exc_type, exc_value, tb)
-  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\_compat.py", line 36, in reraise
-    raise value
-  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\helpers.py", line 345, in url_for
-    force_external=external)
-  File "c:\pyprogects\microblog\venv\lib\site-packages\werkzeug\routing.py", line 2007, in build
-    raise BuildError(endpoint, values, method, self)
-werkzeug.routing.BuildError: Could not build url for endpoint 'edit_profile'. Did you mean 'main.edit_profile' instead?
-2019-07-09 15:07:59,944 INFO: Microblog startup [in c:\pyprogects\microblog\venv\app\__init__.py:75]
-2019-07-09 15:16:21,745 INFO: Microblog startup [in c:\pyprogects\microblog\venv\app\__init__.py:75]
-2019-07-09 15:16:48,188 ERROR: Exception on /search [GET] [in c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py:1780]
+  File "c:\pyprogects\microblog\venv\app\main\routes.py", line 154, in search
+    if total['value'] > page * current_app.config['POSTS_PER_PAGE'] else None
+TypeError: 'int' object is not subscriptable
+2019-07-09 15:57:14,457 ERROR: Exception on /search [GET] [in c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py:1780]
 Traceback (most recent call last):
   File "c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py", line 2311, in wsgi_app
     response = self.full_dispatch_request()
@@ -45,15 +34,51 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\pyprogects\microblog\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "c:\pyprogects\microblog\venv\app\main\routes.py", line 152, in search
-    posts, total = Post.search(g.search_form.q.data, page, current_app.config['POSTS_PER_PAGE'])
-TypeError: cannot unpack non-iterable NoneType object
-2019-07-09 15:27:46,882 INFO: Microblog startup [in c:\pyprogects\microblog\venv\app\__init__.py:75]
-2019-07-09 15:27:53,829 ERROR: Exception on /search [GET] [in c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py:1780]
+  File "c:\pyprogects\microblog\venv\app\main\routes.py", line 154, in search
+    if total['value'] > page * current_app.config['POSTS_PER_PAGE'] else None
+TypeError: 'int' object is not subscriptable
+2019-07-09 16:00:13,273 INFO: Microblog startup [in c:\pyprogects\microblog\venv\app\__init__.py:75]
+2019-07-16 14:59:45,236 INFO: Microblog startup [in c:\pyprogects\microblog\venv\app\__init__.py:80]
+2019-07-16 15:00:27,186 ERROR: Exception on /index [POST] [in c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py:1780]
 Traceback (most recent call last):
-  File "c:\pyprogects\microblog\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 705, in comparator
-    comparator_factory = self.type.comparator_factory
-AttributeError: 'NoneType' object has no attribute 'comparator_factory'
+  File "c:\pyprogects\microblog\venv\lib\site-packages\urllib3\connection.py", line 160, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw)
+  File "c:\pyprogects\microblog\venv\lib\site-packages\urllib3\util\connection.py", line 80, in create_connection
+    raise err
+  File "c:\pyprogects\microblog\venv\lib\site-packages\urllib3\util\connection.py", line 70, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\pyprogects\microblog\venv\lib\site-packages\elasticsearch\connection\http_urllib3.py", line 232, in perform_request
+    method, url, body, retries=Retry(False), headers=request_headers, **kw
+  File "c:\pyprogects\microblog\venv\lib\site-packages\urllib3\connectionpool.py", line 641, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "c:\pyprogects\microblog\venv\lib\site-packages\urllib3\util\retry.py", line 344, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "c:\pyprogects\microblog\venv\lib\site-packages\urllib3\packages\six.py", line 686, in reraise
+    raise value
+  File "c:\pyprogects\microblog\venv\lib\site-packages\urllib3\connectionpool.py", line 603, in urlopen
+    chunked=chunked)
+  File "c:\pyprogects\microblog\venv\lib\site-packages\urllib3\connectionpool.py", line 355, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\Users\Andrey_b\AppData\Local\Programs\Python\Python37-32\lib\http\client.py", line 1229, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "C:\Users\Andrey_b\AppData\Local\Programs\Python\Python37-32\lib\http\client.py", line 1275, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "C:\Users\Andrey_b\AppData\Local\Programs\Python\Python37-32\lib\http\client.py", line 1224, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\Users\Andrey_b\AppData\Local\Programs\Python\Python37-32\lib\http\client.py", line 1016, in _send_output
+    self.send(msg)
+  File "C:\Users\Andrey_b\AppData\Local\Programs\Python\Python37-32\lib\http\client.py", line 956, in send
+    self.connect()
+  File "c:\pyprogects\microblog\venv\lib\site-packages\urllib3\connection.py", line 183, in connect
+    conn = self._new_conn()
+  File "c:\pyprogects\microblog\venv\lib\site-packages\urllib3\connection.py", line 169, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x04C9BB50>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение
 
 During handling of the above exception, another exception occurred:
 
@@ -72,71 +97,26 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\pyprogects\microblog\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "c:\pyprogects\microblog\venv\app\main\routes.py", line 152, in search
-    posts, total = Post.search(g.search_form.q.data, page, current_app.config['POSTS_PER_PAGE'])
-  File "c:\pyprogects\microblog\venv\app\models.py", line 22, in search
-    return cls.query.filter(cls.id.in_(ids)).order_by(db.case(when, value=cls.id)), total
-  File "<string>", line 2, in order_by
-  File "c:\pyprogects\microblog\venv\lib\site-packages\sqlalchemy\orm\base.py", line 220, in generate
-    fn(self, *args[1:], **kw)
-  File "c:\pyprogects\microblog\venv\lib\site-packages\sqlalchemy\orm\query.py", line 1821, in order_by
-    criterion = self._adapt_col_list(criterion)
-  File "c:\pyprogects\microblog\venv\lib\site-packages\sqlalchemy\orm\query.py", line 315, in _adapt_col_list
-    for o in cols
-  File "c:\pyprogects\microblog\venv\lib\site-packages\sqlalchemy\orm\query.py", line 315, in <listcomp>
-    for o in cols
-  File "c:\pyprogects\microblog\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 4437, in _literal_as_label_reference
-    elif hasattr(element, "__clause_element__"):
-  File "c:\pyprogects\microblog\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 716, in __getattr__
-    return getattr(self.comparator, key)
-  File "c:\pyprogects\microblog\venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 855, in __get__
-    obj.__dict__[self.__name__] = result = self.fget(obj)
-  File "c:\pyprogects\microblog\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 709, in comparator
-    "is not a TypeEngine class or object" % self.type
-TypeError: Object None associated with '.type' attribute is not a TypeEngine class or object
-2019-07-09 15:54:25,249 INFO: Microblog startup [in c:\pyprogects\microblog\venv\app\__init__.py:75]
-2019-07-09 15:54:46,637 ERROR: Exception on /search [GET] [in c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py:1780]
-Traceback (most recent call last):
-  File "c:\pyprogects\microblog\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 705, in comparator
-    comparator_factory = self.type.comparator_factory
-AttributeError: 'NoneType' object has no attribute 'comparator_factory'
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py", line 2311, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py", line 1834, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py", line 1737, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\_compat.py", line 36, in reraise
-    raise value
-  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py", line 1832, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\pyprogects\microblog\venv\lib\site-packages\flask\app.py", line 1818, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "c:\pyprogects\microblog\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "c:\pyprogects\microblog\venv\app\main\routes.py", line 152, in search
-    posts, total = Post.search(g.search_form.q.data, page, current_app.config['POSTS_PER_PAGE'])
-  File "c:\pyprogects\microblog\venv\app\models.py", line 23, in search
-    return cls.query.filter(cls.id.in_(ids)).order_by(db.case(when, value=cls.id)), total
-  File "<string>", line 2, in order_by
-  File "c:\pyprogects\microblog\venv\lib\site-packages\sqlalchemy\orm\base.py", line 220, in generate
-    fn(self, *args[1:], **kw)
-  File "c:\pyprogects\microblog\venv\lib\site-packages\sqlalchemy\orm\query.py", line 1821, in order_by
-    criterion = self._adapt_col_list(criterion)
-  File "c:\pyprogects\microblog\venv\lib\site-packages\sqlalchemy\orm\query.py", line 315, in _adapt_col_list
-    for o in cols
-  File "c:\pyprogects\microblog\venv\lib\site-packages\sqlalchemy\orm\query.py", line 315, in <listcomp>
-    for o in cols
-  File "c:\pyprogects\microblog\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 4437, in _literal_as_label_reference
-    elif hasattr(element, "__clause_element__"):
-  File "c:\pyprogects\microblog\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 716, in __getattr__
-    return getattr(self.comparator, key)
-  File "c:\pyprogects\microblog\venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 855, in __get__
-    obj.__dict__[self.__name__] = result = self.fget(obj)
-  File "c:\pyprogects\microblog\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 709, in comparator
-    "is not a TypeEngine class or object" % self.type
-TypeError: Object None associated with '.type' attribute is not a TypeEngine class or object
+  File "c:\pyprogects\microblog\venv\app\main\routes.py", line 33, in index
+    db.session.commit()
+  File "c:\pyprogects\microblog\venv\lib\site-packages\sqlalchemy\orm\scoping.py", line 162, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "c:\pyprogects\microblog\venv\lib\site-packages\sqlalchemy\orm\session.py", line 1027, in commit
+    self.transaction.commit()
+  File "c:\pyprogects\microblog\venv\lib\site-packages\sqlalchemy\orm\session.py", line 501, in commit
+    self.session.dispatch.after_commit(self.session)
+  File "c:\pyprogects\microblog\venv\lib\site-packages\sqlalchemy\event\attr.py", line 259, in __call__
+    fn(*args, **kw)
+  File "c:\pyprogects\microblog\venv\app\models.py", line 36, in after_commit
+    add_to_index(obj.__tablename__, obj)
+  File "c:\pyprogects\microblog\venv\app\search.py", line 10, in add_to_index
+    current_app.elasticsearch.index(index=index, doc_type=index, id=model.id, body=payload)
+  File "c:\pyprogects\microblog\venv\lib\site-packages\elasticsearch\client\utils.py", line 84, in _wrapped
+    return func(*args, params=params, **kwargs)
+  File "c:\pyprogects\microblog\venv\lib\site-packages\elasticsearch\client\__init__.py", line 364, in index
+    "POST", _make_path(index, doc_type, id), params=params, body=body
+  File "c:\pyprogects\microblog\venv\lib\site-packages\elasticsearch\transport.py", line 353, in perform_request
+    timeout=timeout,
+  File "c:\pyprogects\microblog\venv\lib\site-packages\elasticsearch\connection\http_urllib3.py", line 244, in perform_request
+    raise ConnectionError("N/A", str(e), e)
+elasticsearch.exceptions.ConnectionError: ConnectionError(<urllib3.connection.HTTPConnection object at 0x04C9BB50>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение) caused by: NewConnectionError(<urllib3.connection.HTTPConnection object at 0x04C9BB50>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение)

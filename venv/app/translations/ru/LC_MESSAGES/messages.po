@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-07-09 15:13+0300\n"
+"POT-Creation-Date: 2019-07-17 16:12+0300\n"
 "PO-Revision-Date: 2019-07-04 17:35+0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
@@ -91,7 +91,7 @@ msgstr "Ваш пароль был изменен"
 msgid "About me"
 msgstr "Обо мне"
 
-#: app/main/forms.py:14 app/main/forms.py:29
+#: app/main/forms.py:14 app/main/forms.py:29 app/main/forms.py:45
 msgid "Submit"
 msgstr "Отправить"
 
@@ -102,6 +102,10 @@ msgstr "Напиши что-нибудь"
 #: app/main/forms.py:33 app/main/routes.py:157
 msgid "Search"
 msgstr "Искать"
+
+#: app/main/forms.py:44
+msgid "Message"
+msgstr "Сообщение"
 
 #: app/main/routes.py:34
 msgid "Your post was saved"
@@ -134,12 +138,20 @@ msgstr "Вы не можете отписаться от себя!"
 msgid "You are not following %(username)s!"
 msgstr "Вы не подписаны на %(username)s!"
 
-#: app/templates/_post.html:14
+#: app/main/routes.py:175
+msgid "Yoir message has been sent."
+msgstr "Ваше ссобщение отправлено"
+
+#: app/main/routes.py:178
+msgid "Send Message"
+msgstr "Отправить сообщение"
+
+#: app/templates/_post.html:16
 #, python-format
 msgid "%(username)s said %(when)s"
 msgstr "%(username)s Написал %(when)s"
 
-#: app/templates/_post.html:26
+#: app/templates/_post.html:28
 msgid "Translate"
 msgstr "Перевести"
 
@@ -147,23 +159,27 @@ msgstr "Перевести"
 msgid "Error: Could not contact server."
 msgstr "Ошибка: невозможно соединисться с сервером"
 
-#: app/templates/base.html:43
+#: app/templates/base.html:84
 msgid "Home"
 msgstr "Домой"
 
-#: app/templates/base.html:44
+#: app/templates/base.html:85
 msgid "Explore"
 msgstr "Все посты"
 
-#: app/templates/base.html:55
+#: app/templates/base.html:96
 msgid "Login"
 msgstr "Войти"
 
-#: app/templates/base.html:57
+#: app/templates/base.html:98 app/templates/messages.html:3
+msgid "Messages"
+msgstr "Сообщения"
+
+#: app/templates/base.html:99
 msgid "Profile"
 msgstr "Профиль"
 
-#: app/templates/base.html:58
+#: app/templates/base.html:100
 msgid "Logout"
 msgstr "Выйти"
 
@@ -176,13 +192,21 @@ msgstr "Редактировать профиль"
 msgid "Hi, %(username)s!"
 msgstr "Привет, %(username)s!"
 
-#: app/templates/index.html:17 app/templates/user.html:29
+#: app/templates/index.html:17 app/templates/user.html:34
 msgid "Newer posts"
 msgstr "Нове посты"
 
-#: app/templates/index.html:22 app/templates/user.html:34
+#: app/templates/index.html:22 app/templates/user.html:39
 msgid "Older posts"
 msgstr "Старые посты"
+
+#: app/templates/messages.html:11
+msgid "Newer messages"
+msgstr "Новые сообщения"
+
+#: app/templates/messages.html:16
+msgid "Older messages"
+msgstr "Старые сообщения"
 
 #: app/templates/search.html:4
 msgid "Search Results"
@@ -196,11 +220,16 @@ msgstr "Предыдущие результаты"
 msgid "Next results"
 msgstr "Следующие результаты"
 
+#: app/templates/send_message.html:5
+#, python-format
+msgid "Send Message to %(recipient)s"
+msgstr "Отправить сообщение %(recipient)s"
+
 #: app/templates/user.html:8
 msgid "User"
 msgstr "Пользователь"
 
-#: app/templates/user.html:10
+#: app/templates/user.html:10 app/templates/user_popup.html:14
 msgid "Last seen on"
 msgstr "Последний раз в сети"
 
@@ -212,17 +241,31 @@ msgstr "Подписанные"
 msgid "following"
 msgstr "Подписчики"
 
-#: app/templates/user.html:13
+#: app/templates/user.html:15
+msgid "Send private message"
+msgstr "Отправить личное сообщение"
+
+#: app/templates/user.html:18
 msgid "Edit your profile"
 msgstr "Редактировать профиль"
 
-#: app/templates/user.html:15
+#: app/templates/user.html:20 app/templates/user_popup.html:24
 msgid "Follow"
 msgstr "Подписаться"
 
-#: app/templates/user.html:17
+#: app/templates/user.html:22 app/templates/user_popup.html:27
 msgid "Unfollow"
 msgstr "Отписаться"
+
+#: app/templates/user_popup.html:19
+#, python-format
+msgid "%(count)d followers"
+msgstr "%(count)d Подписок"
+
+#: app/templates/user_popup.html:20
+#, python-format
+msgid "%(count)d following"
+msgstr "%(count)d подписчиков"
 
 #: app/templates/auth/login.html:12
 msgid "Click to Register!"
